@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Umbrae Limes — Esperienze immersive digitali. Studio di comunicazione visiva di progetto.">
+<title>Umbrae Limes</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --nero:#05070d;
+  --pietra:#1a1a18;
+  --oro:#b8945a;
+  --oro2:#c9a96e;
+  --testo:#d4cdc4;
+  --muted:#5a5652;
+  --line:rgba(184,148,90,0.12);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--nero);
+  color:var(--testo);
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── HEADER ── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.8rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:1.1rem;letter-spacing:.2em;
+  color:var(--oro);text-decoration:none;
+}
+nav a{
+  font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;margin-left:2.5rem;
+  transition:color .3s;
+}
+nav a:hover{color:var(--oro)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+/* testo — colonna sinistra */
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:9rem 4rem 6rem 3rem;
+  border-right:1px solid var(--line);
+}
+
+.eyebrow{
+  font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;
+  color:var(--oro);opacity:.7;margin-bottom:2.8rem;
+  display:block;
+}
+
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(2.4rem,4.5vw,4rem);
+  line-height:1.05;
+  color:#e8e0d4;
+  margin-bottom:3rem;
+}
+h1 em{font-style:italic;color:var(--oro2)}
+
+.frase{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(1rem,1.6vw,1.2rem);
+  color:rgba(212,205,196,.5);
+  line-height:1.7;
+  margin-bottom:3.5rem;
+  max-width:380px;
+}
+
+.cta-group{display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+
+.btn{
+  font-family:'Jost',sans-serif;font-weight:300;
+  font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;
+  padding:.7rem 2rem;text-decoration:none;
+  transition:all .4s;display:inline-block;
+}
+.btn-oro{border:1px solid var(--oro);color:var(--oro)}
+.btn-oro:hover{background:var(--oro);color:var(--nero)}
+.btn-ghost{border:1px solid rgba(90,80,70,.3);color:var(--muted)}
+.btn-ghost:hover{border-color:rgba(184,148,90,.35);color:var(--oro)}
+
+/* foto — colonna destra */
+.hero-right{
+  position:relative;
+  overflow:hidden;
+}
+.hero-right img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  filter:grayscale(100%) contrast(1.08) brightness(.92);
+  display:block;
+  /* sfuma verso il basso e verso sinistra per fondersi col nero */
+  -webkit-mask-image:
+    linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%),
+    linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 18%);
+  mask-image:
+    linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%),
+    linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 18%);
+  -webkit-mask-composite:destination-in;
+  mask-composite:intersect;
+}
+
+/* nome in basso sulla foto */
+.photo-caption{
+  position:absolute;bottom:2.5rem;left:2rem;
+  font-size:.55rem;letter-spacing:.38em;text-transform:uppercase;
+  color:rgba(184,148,90,.4);
+}
+
+/* ── STRISCIA INFO ── */
+.strip{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.strip-item{
+  padding:2rem 2.5rem;
+  border-right:1px solid var(--line);
+}
+.strip-item:last-child{border-right:none}
+.strip-label{
+  font-size:.55rem;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--oro);opacity:.6;display:block;margin-bottom:.6rem;
+}
+.strip-val{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:1.05rem;color:rgba(212,205,196,.7);
+}
+
+/* ── SEZIONE COSTRUZIONE ── */
+.costruzione{
+  max-width:640px;margin:0 auto;
+  padding:7rem 2rem;
+  text-align:center;
+}
+.costruzione h2{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  color:#e8e0d4;line-height:1.2;margin-bottom:1.5rem;
+}
+.costruzione h2 em{font-style:italic;color:var(--oro2)}
+.costruzione p{
+  font-size:.85rem;line-height:2;color:var(--muted);
+  margin-bottom:2.5rem;
+}
+.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--line);
+  padding:2rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-copy{font-size:.55rem;letter-spacing:.25em;color:rgba(90,80,70,.4)}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{
+  font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .3s;
+}
+.footer-links a:hover{color:var(--oro)}
+
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease}
+.r.on{opacity:1;transform:none}
+
+/* ── MOBILE ── */
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:8rem 1.8rem 3rem;border-right:none;border-bottom:1px solid var(--line)}
+  .hero-right{height:70vw}
+  .strip{grid-template-columns:1fr}
+  .strip-item{border-right:none;border-bottom:1px solid var(--line)}
+  .strip-item:last-child{border-bottom:none}
+  footer{flex-direction:column;align-items:flex-start}
+  header{padding:1.4rem 1.8rem}
+  nav a{margin-left:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">Umbrae Limes</a>
+  <nav>
+    <a href="https://www.instagram.com/umbraelimes/" target="_blank">Instagram</a>
+    <a href="mailto:umbraelimes@gmail.com">Contatto</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div class="hero-left">
+    <span class="eyebrow r">Esperienze immersive digitali</span>
+
+    <h1 class="r" style="transition-delay:.1s">
+      Una cosa<br>non esiste solo<br>perché non<br><em>la vedi.</em>
+    </h1>
+
+    <p class="frase r" style="transition-delay:.2s">
+      C'è. La senti.<br>La sua presenza, la sua forza.<br>
+      Il progetto emerge dalla somma<br>di tutte le possibilità.
+    </p>
+
+    <div class="cta-group r" style="transition-delay:.3s">
+      <a href="https://www.instagram.com/umbraelimes/" target="_blank" class="btn btn-oro">Segui il percorso</a>
+      <a href="mailto:umbraelimes@gmail.com" class="btn btn-ghost">umbraelimes@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!--
+      ISTRUZIONI DEPLOYMENT:
+      Carica la tua foto su Namecheap con il nome "foto.jpg"
+      nella stessa cartella di questo index.html
+    -->
+    <img src="foto.jpg" alt="Diogo Roling">
+    <span class="photo-caption">Diogo Roling — Porto Mantovano</span>
+  </div>
+
+</section>
+
+<div class="strip r">
+  <div class="strip-item">
+    <span class="strip-label">Settore</span>
+    <span class="strip-val">Architettura · Interior · Manifattura</span>
+  </div>
+  <div class="strip-item">
+    <span class="strip-label">Strumenti</span>
+    <span class="strip-val">Unreal Engine · Rhino · Blender</span>
+  </div>
+  <div class="strip-item">
+    <span class="strip-label">Base</span>
+    <span class="strip-val">Porto Mantovano, Mantova</span>
+  </div>
+</div>
+
+<section class="costruzione r">
+  <h2>Il sito prende forma<br><em>lentamente.</em></h2>
+  <p>
+    Come ogni spazio che ha senso.<br>
+    Nel frattempo puoi seguire il percorso su Instagram
+    o scrivermi direttamente.
+  </p>
+  <div class="cta-row">
+    <a href="https://www.instagram.com/umbraelimes/" target="_blank" class="btn btn-oro">Instagram</a>
+    <a href="mailto:umbraelimes@gmail.com" class="btn btn-ghost">Scrivimi</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2025 Umbrae Limes — Diogo Roling</span>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/umbraelimes/" target="_blank">Instagram</a>
+    <a href="mailto:umbraelimes@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(els=>{
+  els.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on')}})
+},{threshold:.15});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
